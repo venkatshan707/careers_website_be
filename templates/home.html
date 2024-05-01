@@ -3,7 +3,7 @@
 
  <!-- All the webpages were built using using tags only. <html></html> is root tag. -->
 <html>
-
+   
   
   <head>
     <!-- Head is the information that is used to render the things in the body-->
@@ -32,11 +32,13 @@
   </head>
   
   <body>
+    {% include 'navbar.html' %}
     <!--  <body> section contains the actual content of the webpage, including text, images, links, forms,-->
   <div class= "container" >
+    <img class = "img-fluid" id= "banner" src="https://73b86460-fe8a-4326-82f2-5a9aad280032-00-ny67vo9qlm0g.picard.replit.dev/static/fl2.jpg" >
     <h1 class="text-center">{{company_name}} Careers</h1>
-    <img class = "img-fluid" id= "banner" src="https://73b86460-fe8a-4326-82f2-5a9aad280032-00-ny67vo9qlm0g.picard.replit.dev/static/banner.jpg" >
-    <h2 class="text-center mt-2 mb-4">About Thedal</h2>
+    
+    
     <p class ="lead">
       Welcome to Thedal, your premier job search platform in India! We're dedicated to helping talented professionals like you discover exciting career opportunities across diverse industries. With a focus on user experience and personalized recommendations, Thedal makes job hunting effortless. Explore a wide range of job listings, from entry-level positions to senior roles, and connect with top employers nationwide. Whether you're seeking full-time roles, part-time jobs, internships, or freelance opportunities, Thedal has you covered. Join us in shaping the future of your career and unlocking new possibilities in the Indian job market.</p>
     <h2 class="text-center mt-2 mb-4">Open Positions</h2>
@@ -52,8 +54,9 @@
     </div>
       <div class="text-center" ><!--Inline styling with in tag when we have very few style attributes -->
         <button class="text-center btn btn-primary btn-lg">Contact Us</button>
-        <p class ="mt-4"> Copyrights 2024, Thedal</p>
+
       </div>
     </div>
+  {% include 'footer.html' %}
   </body>
 </html>
