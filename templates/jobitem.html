@@ -1,0 +1,23 @@
+<!-- We are structuring the template. we can use this template any where and as many as the times we need -->
+<div class ="border-bottom row" style="margin-bottom:16px; padding-bottom:8px" >
+  
+  <div class="col-10"> <!--Dividing the total number columns by 12 and assigning 10 places to 1st column -->
+    <h4 style= "color:rgb(120,120,120)">{{job['title']}}</h4>
+
+    <div>
+      <b>Location</b>: {{job['location']}}
+    </div>
+
+    {% if 'salary' in job %}
+    <div style="margin-bottom:4px">
+      <b>Salary</b>: {{job['salary']}}
+    </div>
+    {% endif %}
+  </div>
+  
+  <div class="col-2">
+    <button type="button" class="btn btn-outline-primary">Apply</button>
+  </div>
+  
+  
+</div>
