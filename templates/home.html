@@ -8,68 +8,42 @@
   <head>
     <!-- Head is the information that is used to render the things in the body-->
   <!--Information you want to show in title bar, and can have CSS links, external js script libraies  and other meta tags-->
+
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Linkiing to pre existing css style file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
+  <style>
+    #banner{
+      height: 360px;
+      width:100%;
+      object-fit: cover;
+      margin-bottom: 16px;
+    }
+  </style>
+
+
   <title>Thedal Careers</title>
 
-    
-  <style> 
-    /* internal or embedded CSS styling */
-
-     /* Styling the HTML TAG, how it should look like*/
-    h1{
-      font-size; : 40 px;
-      font-family:Roboto;
-      font-weight:normal;
-      color:rgb(50,50,50);
-      text-align: center;
-    }
-
-    
-    /* Second way of selecting and applying style using 'id' inside tage */
-    
-    /* No two elements within the same HTML document should have the same ID. */
-    #banner{ /* This type of styling called selector ("ID selector")type of styling. This ID should be assigned to single element only */
-    width: 100%;
-    height: 350px;
-    object-fit:cover;
-    }
-
-    h2{
-      font-size; : 32 px;
-      font-family:Roboto;
-      font-weight:normal;
-      color:rgb(100,100,100);
-      text-align: center;
-    }
-    .bodytextclass{
-      font-family:Roboto;
-      color:rgb(80,80,80)  
-    }/* This type of styling called selector ("class Selector")type of styling. This class can be applied to many elements(tags)*/
-    
-    #container{
-      max-width: 720px;
-      margin: 0 auto; /* 0 - for top and bottom margin, auto -left and right margin. Using it we can auto center the content*/
-    }/* Whole content inside body styled with div tag using Id Container */
-
-    
-    
-  </style>
+  
     
     
   </head>
   
   <body>
     <!--  <body> section contains the actual content of the webpage, including text, images, links, forms,-->
-  <div id ="container">
-    <h1>Thedal Careers</h1>
-    <img id= "banner" src="https://73b86460-fe8a-4326-82f2-5a9aad280032-00-ny67vo9qlm0g.picard.replit.dev/static/banner.jpg" >
-    <h2>About Thedal</h2>
-    <p class="bodytextclass">
+  <div class= "container" >
+    <h1 class="text-center">Thedal Careers</h1>
+    <img class = "img-fluid" id= "banner" src="https://73b86460-fe8a-4326-82f2-5a9aad280032-00-ny67vo9qlm0g.picard.replit.dev/static/banner.jpg" >
+    <h2 class="text-center mt-2 mb-4">About Thedal</h2>
+    <p class ="lead">
       Welcome to Thedal, your premier job search platform in India! We're dedicated to helping talented professionals like you discover exciting career opportunities across diverse industries. With a focus on user experience and personalized recommendations, Thedal makes job hunting effortless. Explore a wide range of job listings, from entry-level positions to senior roles, and connect with top employers nationwide. Whether you're seeking full-time roles, part-time jobs, internships, or freelance opportunities, Thedal has you covered. Join us in shaping the future of your career and unlocking new possibilities in the Indian job market.</p>
-    <h2>Open Positions</h2>
-    <p class="bodytextclass">TO DO - later </p>
-      <div style ="text-align:center;"><!--Inline styling with in tag when we have very few style attributes -->
-        <button>Contact Us</button>
-        <p> Copyrights 2024, Thedal</p>
+    <h2 class="text-center mt-2 mb-4">Open Positions</h2>
+    <p >TO DO - later </p>
+      <div class="text-center" ><!--Inline styling with in tag when we have very few style attributes -->
+        <button class="text-center btn btn-primary btn-lg">Contact Us</button>
+        <p class ="mt-4"> Copyrights 2024, Thedal</p>
       </div>
     </div>
   </body>
