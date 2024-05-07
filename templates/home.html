@@ -37,10 +37,17 @@
   <div class= "container" >
     <img class = "img-fluid" id= "banner" src="https://73b86460-fe8a-4326-82f2-5a9aad280032-00-ny67vo9qlm0g.picard.replit.dev/static/fl2.jpg" >
     <h1 class="text-center">{{company_name}} Careers</h1>
+    <div class="row" style= "margin-bottom:50px">
+    <div class ="col-md-6">   <!-- Medium screen devices show text for 6 columns -->
+        <p class ="lead" >
+      Welcome to Thedal, your premier job search platform in India! We're dedicated to helping talented professionals like you discover exciting career opportunities across diverse industries. With a focus on user experience and personalized recommendations, Thedal makes job hunting effortless. Explore a wide range of job listings, from entry-level positions to senior roles, and connect with top employers nationwide. Whether you're seeking full-time roles, part-time jobs, internships, or freelance opportunities, Thedal has you covered. Join us in shaping the future of your career and unlocking new possibilities in the Indian job market.
+      </p>
+      </div>
+      <div class="d-none d-md-block col-md-6""><!-- Medium screen devices not to show images -->
+          <img src= "/static/people.jpg" style="height:320px; border-radius:10px;margin-left:10px;">
+      </div>
+    </div>
     
-    
-    <p class ="lead">
-      Welcome to Thedal, your premier job search platform in India! We're dedicated to helping talented professionals like you discover exciting career opportunities across diverse industries. With a focus on user experience and personalized recommendations, Thedal makes job hunting effortless. Explore a wide range of job listings, from entry-level positions to senior roles, and connect with top employers nationwide. Whether you're seeking full-time roles, part-time jobs, internships, or freelance opportunities, Thedal has you covered. Join us in shaping the future of your career and unlocking new possibilities in the Indian job market.</p>
     <h2 class="text-center mt-2 mb-4">Open Positions</h2>
     <div>
       <!-- templating syntax refers to the way you embed dynamic content/data, variables, control structures, and expressions within HTML templates.it's a feature from Flask Jinja2 template-->
@@ -53,7 +60,8 @@
 
     </div>
       <div class="text-center" ><!--Inline styling with in tag when we have very few style attributes -->
-        <button class="text-center btn btn-primary btn-lg">Contact Us</button>
+        <a href= "mailto:venkatshan707@gmail.com?subject=Question%20about%20Thedal%20Job%20Openings&body=My%20Name%3A%20%3CEnter%20Your%20Name%3E%0D%0AMy%20Question%3A%20%3CEnter%20your%20Question%3E" class="text-center btn btn-primary btn-lg">Contact Us
+        </a>
 
       </div>
     </div>
