@@ -1,7 +1,7 @@
 import sqlalchemy
 import azureconfig
 
-from sqlalchemy import create_engine, MetaData, Column, Integer, String, ForeignKey, Table
+from sqlalchemy import create_engine, MetaData, Column, Integer, String, ForeignKey, Table, text
 
 import pyodbc
 
@@ -27,23 +27,21 @@ records = cursor.fetchall()
 for r in records:
             print(f"{r.id}\t{r.title}\t{r.location}\t{r.currency} {r.salary}")
 
-# # Azure SQL Database credentials
-# from azureconfig import server, database, username, password, driver
 
-# from sqlalchemy.ext.declarative import declarative_base
-# from sqlalchemy.orm import sessionmaker
 
-# print("version", sqlalchemy.__version__)
 
-# # Construct the connection string using imported credentials
-# conn_str = (f"mssql+pyodbc://"
-#             f"{username}:{password}@{server}/{database}"
-#             f"?driver={driver}")
 
-# # Create the SQLAlchemy engine
-# engine = create_engine(
-#     conn_str, echo=True)  # Set echo=True for debugging, it prints SQL queries
 
+
+
+# Create an engine
+engine = create_engine(f"mssql+pyodbc://{USERNAME}:{PASSWORD}@{SERVER}/{DATABASE}?driver=ODBC+Driver+18+for+SQL+Server")
+
+
+with engine.connect() as conn:
+        result = conn.execute(text('SELECT * FROM dbo.jobs'))
+        for r in result.fetchall():
+            print(f"{r.id}\t{r.title}\t{r.location}\t{r.currency} {r.salary}")
 # # Define metadata
 # metadata = MetaData()
 
@@ -58,5 +56,5 @@ for r in records:
 # conn = engine.connect()
 # conn.execute(users.insert().values(name='John Doe', email='john@example.com'))
 
-# # Close the connection
-# conn.close()
+# Close the connection
+conn.close()
