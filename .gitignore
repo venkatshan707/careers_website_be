@@ -128,6 +128,7 @@ ENV/
 env.bak/
 venv.bak/
 azureconfig.py
+e2e/
 
 # Spyder project settings
 .spyderproject

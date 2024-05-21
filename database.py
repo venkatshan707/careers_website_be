@@ -10,7 +10,8 @@ DATABASE = azureconfig.database
 USERNAME = azureconfig.username
 PASSWORD = azureconfig.password
 
-connectionString = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
+connectionString = f'DRIVER={{ODBC Driver 18 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
+
 
 conn = pyodbc.connect(connectionString)
 
@@ -24,7 +25,7 @@ cursor.execute(SQL_QUERY)
 
 records = cursor.fetchall()
 for r in records:
-            print(f"{r.CustomerID}\t{r.OrderCount}\t{r.CompanyName}")
+            print(f"{r.id}\t{r.title}\t{r.location}\t{r.currency} {r.salary}")
 
 # # Azure SQL Database credentials
 # from azureconfig import server, database, username, password, driver
