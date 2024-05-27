@@ -46,21 +46,22 @@ with engine.connect() as conn: # Giving name to the connection established by th
         result = conn.execute(text('SELECT * FROM dbo.jobs'))
 
         print (f"Type of result :{type(result)}")# type of result is a <class 'sqlalchemy.engine.cursor.CursorResult'>
-        result_all=result.all()# fetches all rows from the result set and returns them as a list of row objects.
-        print (f"Type of result.all() :{type(result_all)}") # Type of result_all is a list
-        
-        print ( f"Type of result_all[0]() :{type(result_all[0])}")
+
 
         #Converting SQLalchemy row in to dictionary
         #Actually our database have column names and values to it. we can think of like key : value pair 
-        #we can achieve key value pair by typecasting row as dict        
-
-        for row in result_all:
-            row_as_dict = row._mapping# Converting as dictionary
-
-        print(type(row_as_dict))# <class 'sqlalchemy.engine.row.RowMapping'>
+        #we can achieve key value pair, by typecasting each row as dict  
         
-        for r in result_all:        
+        result_as_dict =result.mappings().all()# Converting as dictionary
+
+        """The mappings() method of the CursorResult object returns a RowProxy object, which is a row-level collection of 
+        result columns. The all() method then converts this RowProxy object into a list of dictionaries, where each dictionary
+         represents a row in the result set."""
+
+        print(type(result_as_dict))#the result_as_dict variable will be a list of dictionaries, where each dictionary represents a row in the users table.
+        
+        
+        for r in result_as_dict:        
             print(f"{r.id}\t{r.title}\t{r.location}\t{r.currency} {r.salary}")
 # when we comming out of 'with' our connection will be automatically closed 
 
