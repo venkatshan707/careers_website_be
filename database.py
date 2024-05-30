@@ -6,12 +6,17 @@ from sqlalchemy.orm import sessionmaker
 
 import pyodbc
 
-SERVER = azureconfig.server
-DATABASE = azureconfig.database
-USERNAME = azureconfig.username
-PASSWORD = azureconfig.password
+import os
 
-connectionString = f'DRIVER={{ODBC Driver 18 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
+from dotenv import load_dotenv
+load_dotenv('.env')
+USERNAME:str =os.getenv('user')
+SERVER:str =os.getenv('server')
+DATABASE:str =os.getenv('database')
+PASSWORD:str =os.getenv('password')
+
+connectionString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={SERVER},1433;Database={DATABASE};Uid={USERNAME};Pwd={PASSWORD};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;'
+print(connectionString)
 
 
 conn = pyodbc.connect(connectionString)
