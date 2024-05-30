@@ -1,5 +1,5 @@
 import sqlalchemy
-import azureconfig
+#import azureconfig
 
 from sqlalchemy import create_engine, MetaData, Column, Integer, String, ForeignKey, Table, text
 from sqlalchemy.orm import sessionmaker
@@ -9,15 +9,18 @@ import pyodbc
 import os
 
 from dotenv import load_dotenv
-load_dotenv('.env')
-USERNAME:str =os.getenv('user')
-SERVER:str =os.getenv('server')
-DATABASE:str =os.getenv('database')
-PASSWORD:str =os.getenv('password')
+if load_dotenv('.env') ==True:
 
-connectionString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={SERVER},1433;Database={DATABASE};Uid={USERNAME};Pwd={PASSWORD};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;'
-print(connectionString)
+  USERNAME:str =os.getenv('user')
+  SERVER:str =os.getenv('server')
+  DATABASE:str =os.getenv('database')
+  PASSWORD:str =os.getenv('password')
 
+  connectionString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={SERVER},1433;Database={DATABASE};Uid={USERNAME};Pwd={PASSWORD};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;'
+  print(connectionString)
+else :
+  connectionString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={SERVER},1433;Database={DATABASE};Uid={USERNAME};Pwd={PASSWORD};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;'
+  print(connectionString)
 
 conn = pyodbc.connect(connectionString)
 
