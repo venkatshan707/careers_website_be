@@ -19,7 +19,7 @@ if load_dotenv('.env') ==True:
   connectionString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={SERVER},1433;Database={DATABASE};Uid={USERNAME};Pwd={PASSWORD};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;'
   print(connectionString)
 else :
-  connectionString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={SERVER},1433;Database={DATABASE};Uid={USERNAME};Pwd={PASSWORD};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;'
+  connectionString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={server},1433;Database={database};Uid={user};Pwd={password};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;'
   print(connectionString)
 
 conn = pyodbc.connect(connectionString)
