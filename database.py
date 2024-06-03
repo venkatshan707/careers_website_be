@@ -9,6 +9,7 @@ import pyodbc
 import os
 
 from dotenv import load_dotenv
+
 if load_dotenv('.env') ==True:
 
   USERNAME:str =os.getenv('user')
@@ -17,10 +18,10 @@ if load_dotenv('.env') ==True:
   PASSWORD:str =os.getenv('password')
 
   connectionString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={SERVER},1433;Database={DATABASE};Uid={USERNAME};Pwd={PASSWORD};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;'
-  print(connectionString)
+  # print(connectionString)
 else :
   connectionString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={server},1433;Database={database};Uid={user};Pwd={password};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;'
-  print(connectionString)
+  # print(connectionString)
 
 conn = pyodbc.connect(connectionString)
 
@@ -74,3 +75,12 @@ def load_jobs_from_db():
         return jobs_as_list_of_dict  
       # # when we comming out of 'with' our connection will be automatically closed 
         
+def load_job_from_db(id):
+   with engine.connect() as conn:
+        
+        result = conn.execute(text("SELECT * FROM jobs WHERE id = :val"), {"val": id})
+        row = result.first()
+        if row is None:
+            return None
+        else:
+            return row._asdict()
