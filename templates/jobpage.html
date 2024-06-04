@@ -31,8 +31,8 @@
 
             <h4>Requirements</h4>
 
-            <ol>
-                {% for line in job.requirements.split("\n")%}
+            <ol> <!--Ordered list -->
+                {% for line in job.requirements.split("\n")%} <!-- List item splitted based on new line-->
                 <li>{{line}}</li>
                 {% endfor %}
             </ol>
@@ -40,9 +40,12 @@
 
             <h4>Salary</h4>
             <p>{{job.currency}}{{job.salary}}</p>
+            {% include 'application_form.html' %}
         </div>
 
         
+
+
         {% include 'footer.html' %}
 
         

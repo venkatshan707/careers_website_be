@@ -1,0 +1,46 @@
+<h4>Application form</h4>
+
+<form action ="{{ url_for('apply_to_job', id=job['id']) }}" , method = "POST">  
+    <!-- 
+        The url_for() function takes the name of the route function ('apply_to_job') as the first argument, and then any required parameters as keyword arguments (in this case, id=job['id']).
+
+This will generate the correct URL, which should be job/1/apply (or whatever the job['id'] value is).
+
+By using url_for(), you can ensure that the URL is generated correctly, regardless of the structure of your route definitions or the values of the variables involved.
+    -->
+
+
+    <div class="mb-2">
+    <label>Full Name</label ><br>
+    <input type="text" name="full_name", placeholder="Dhoni">
+    </div>
+
+    <div  class="mb-2">
+        <label>Email</label ><br>
+        <input type="text" name="email", placeholder="dhoni@gmail.com">
+    </div>
+
+    <div  class="mb-2">
+        <label>LinkedIn URL</label ><br>
+        <input type="text" name="linked_url", placeholder="https://www.linkedin.com/in/dhoni-5160/">
+    </div>
+
+    <div  class="mb-2">
+        <label>Education</label ><br>
+        <textarea name="education", placeholder="BE-Computer Science"></textarea>
+    </div>
+
+    <div  class="mb-2">
+        <label>Work Experience</label ><br>
+        <textarea name="experience"></textarea>
+    </div>
+
+    <div  class="mb-2">
+        <label>Resume URL</label ><br>
+        <input type=" text" name="resume_url">
+    </div>
+       
+        <input type="submit" name="submit">
+    
+
+</form>

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template  # from flask Module importing Flask class
+from flask import Flask, request, jsonify, render_template  # from flask Module importing Flask class
 from database import load_jobs_from_db, load_job_from_db # from database
 from sqlalchemy import  text
 
@@ -32,6 +32,13 @@ def sho_job(id):
   if not JOB:
     return "Not Found", 404
   return render_template('jobpage.html',job=JOB)
+
+@app.route('/job/<id>/apply', methods=['POST'])
+def apply_to_job(id):
+  data= request.form 
+  print(data)
+  return render_template('application_submitted.html',application=data)
+
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', debug=True)
