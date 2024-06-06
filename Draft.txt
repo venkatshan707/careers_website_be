@@ -1,0 +1,33 @@
+# Creating Table and Trigger 
+USE THEDAL;
+
+-- Create the applications table
+CREATE TABLE applications (
+    id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    job_id INT NOT NULL,
+    full_name VARCHAR(250) NOT NULL,
+    email VARCHAR(250) NOT NULL,
+    linkedin_url VARCHAR(500),
+    education VARCHAR(2000),
+    work_experience VARCHAR(2000),
+    resume_url VARCHAR(500),
+    created_at DATETIME DEFAULT GETDATE(),
+    updated_at DATETIME DEFAULT GETDATE()
+);
+
+-- Create the trigger for updating the updated_at column
+GO
+CREATE TRIGGER trgUpdateApplications
+ON applications
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE applications
+    SET updated_at = GETDATE()
+    WHERE id IN (SELECT DISTINCT id FROM Inserted);
+END;
+GO
+
+
+);

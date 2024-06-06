@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" >
     <head>
-        <h2>
-            Application Submitted
-        </h2>
+        <title>Application Submitted</title>
+        {% include 'bootstrap.html' %}
+        
+   
     </head>
     <body>
-        <h4>Full Name</h4>
-        <div>
-            {{application['full_name']}}
-        </div>
 
-        <h4>Email</h4>
-        <div>
-            {{application['email']}}
+        {% include 'navbar.html' %}
+        {% include 'banner.html' %}
+
+        <div class=" container">
+            
+            <h1 class="text-center mt-2 mb-4">Thedal Careers</h1>
+            <p>Application Submitted 📬 for {{job['title']}} Role</p>
+
+            <h4>Full Name</h4>
+            <div>
+                {{application['full_name']}}
+            </div>
+
+            <h4>Email</h4>
+            <div>
+                {{application['email']}}
+            </div>
+
+            <h4>LinkedIn URL</h4>
+            <div>
+                {{application['linkedin_url']}}
+            </div>
+
+            <h4>Education</h4>
+            <div>
+                {{application['education']}}
+            </div>
+
+            <h4>Work Experience</h4>
+            <div>
+                {{application['experience']}}
+            </div>
+
+            <h4>Resume URL</h4>
+            <div>
+                {{application['resume_url']}}
+            </div>
         </div>
+    {% include 'footer.html' %}
     </body>
 
 </html>

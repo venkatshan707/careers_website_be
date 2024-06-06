@@ -1,4 +1,4 @@
-<h4>Application form</h4>
+<h4 style="text-align: center;">Application form</h4>
 
 <form action ="{{ url_for('apply_to_job', id=job['id']) }}" , method = "POST">  
     <!-- 
@@ -10,37 +10,45 @@ By using url_for(), you can ensure that the URL is generated correctly, regardle
     -->
 
 
-    <div class="mb-2">
+    <!-- <div class="mb-2">
     <label>Full Name</label ><br>
     <input type="text" name="full_name", placeholder="Dhoni">
-    </div>
+    </div> -->
 
-    <div  class="mb-2">
-        <label>Email</label ><br>
-        <input type="text" name="email", placeholder="dhoni@gmail.com">
-    </div>
+    <div class="form-container">
+        <div class="mb-3">
+            <label for="full_name" class="form-label">Name</label>
+            <input type="text" class="form-control"  name="full_name" placeholder="Dhoni" >
+           
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="dhoni@gmail.com" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
 
-    <div  class="mb-2">
-        <label>LinkedIn URL</label ><br>
-        <input type="text" name="linked_url", placeholder="https://www.linkedin.com/in/dhoni-5160/">
-    </div>
+     
+        <div  class="mb-3">
+            <label for ="linkedin_url" class="form-label">LinkedIn URL</label ><br>
+            <input type="text"  class="form-control" name="linkedin_url" placeholder="https://www.linkedin.com/in/dhoni-5160/">
+        </div>
+        <div class="mb-3">
+            <label for="education" class="form-label">Education</label>
+            <textarea class="form-control" id="education" name="education" placeholder="BE-Computer Science" maxlength="60"></textarea>
+        </div>
 
-    <div  class="mb-2">
-        <label>Education</label ><br>
-        <textarea name="education", placeholder="BE-Computer Science"></textarea>
-    </div>
+        <div class="mb-3">
+            <label for="experience" class="form-label">Work Experience</label>
+            <textarea class="form-control" id="experience" name="experience" maxlength="60"></textarea>
+        </div>
 
-    <div  class="mb-2">
-        <label>Work Experience</label ><br>
-        <textarea name="experience"></textarea>
-    </div>
+        <div class="mb-3">
+            <label for="resume_url" class="form-label">Resume URL</label>
+            <input type="url" class="form-control" id="resume_url" name="resume_url" maxlength="60">
+        </div>
 
-    <div  class="mb-2">
-        <label>Resume URL</label ><br>
-        <input type=" text" name="resume_url">
+        <div class="text-center">
+            <input type="submit" name="submit" class="btn btn-primary">
+        
     </div>
-       
-        <input type="submit" name="submit">
-    
-
 </form>

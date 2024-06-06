@@ -10,6 +10,7 @@ import os
 
 from dotenv import load_dotenv
 
+
 if load_dotenv('.env') ==True:
 
   USERNAME:str =os.getenv('user')
@@ -48,7 +49,8 @@ records = cursor.fetchall()
 # Create an engine
 engine = create_engine(f"mssql+pyodbc://{USERNAME}:{PASSWORD}@{SERVER}/{DATABASE}?driver=ODBC+Driver+18+for+SQL+Server")
 
-
+Session = sessionmaker(bind=engine)
+session = Session()
 def load_jobs_from_db():
   with engine.connect() as conn: # Giving name to the connection established by the engine as conn
         # Then is connection used to execute SQL commands 
@@ -84,3 +86,24 @@ def load_job_from_db(id):
             return None
         else:
             return row._asdict()
+        
+def add_application_to_db(id, application):
+  with engine.connect() as conn:
+          session = Session()
+          
+          query = text("INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience, resume_url) VALUES (:job_id, :full_name, :email, :linkedin_url, :education, :work_experience, :resume_url)")
+          
+          
+          params = {
+            'job_id': id,
+            'full_name': application["full_name"],
+            'email': application["email"],
+            'linkedin_url': application["linkedin_url"],
+            'education': application["education"],
+            'work_experience': application["experience"],
+            'resume_url': application["resume_url"]
+        }
+          conn.execute(query,  params) 
+          print("Data inserted successfully")
+          session.commit()
+          session.close()

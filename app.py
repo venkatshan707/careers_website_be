@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template  # from flask Module importing Flask class
-from database import load_jobs_from_db, load_job_from_db # from database
+from database import load_jobs_from_db, load_job_from_db, add_application_to_db # from database
 from sqlalchemy import  text
 
 
@@ -37,7 +37,10 @@ def sho_job(id):
 def apply_to_job(id):
   data= request.form 
   print(data)
-  return render_template('application_submitted.html',application=data)
+  add_application_to_db(id, data)
+  job= load_job_from_db(id)
+  print(data)
+  return render_template('application_submitted.html',application=data, job=job)
 
 
 if __name__ == '__main__':
