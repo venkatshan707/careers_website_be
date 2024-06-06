@@ -1,3 +1,7 @@
+# YouTube Video 
+https://www.youtube.com/watch?v=yBDHkveJUf4&t=10795s
+
+
 # Creating Table and Trigger 
 USE THEDAL;
 
@@ -31,3 +35,6 @@ GO
 
 
 );
+
+# microsoft PYODBC Interactions with Azure SQL DB
+https://learn.microsoft.com/en-us/azure/azure-sql/database/azure-sql-python-quickstart?view=azuresql&tabs=windows%2Csql-inter

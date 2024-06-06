@@ -94,16 +94,16 @@ def add_application_to_db(id, application):
           query = text("INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience, resume_url) VALUES (:job_id, :full_name, :email, :linkedin_url, :education, :work_experience, :resume_url)")
           
           
-          params = {
-            'job_id': id,
-            'full_name': application["full_name"],
-            'email': application["email"],
-            'linkedin_url': application["linkedin_url"],
-            'education': application["education"],
-            'work_experience': application["experience"],
-            'resume_url': application["resume_url"]
-        }
-          conn.execute(query,  params) 
+        #   params = {
+        #     'job_id': id,
+        #     'full_name': application["full_name"],
+        #     'email': application["email"],
+        #     'linkedin_url': application["linkedin_url"],
+        #     'education': application["education"],
+        #     'work_experience': application["experience"],
+        #     'resume_url': application["resume_url"]
+        # }
+          cursor.execute(f"INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience, resume_url) VALUES (?,?,?,?,?,?,?)", id, application["full_name"], application["email"], application["linkedin_url"], application["education"], application["experience"], application["resume_url"]) 
           print("Data inserted successfully")
-          session.commit()
-          session.close()
+          cursor.commit()
+          
